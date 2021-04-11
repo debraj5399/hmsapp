@@ -1,0 +1,103 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New User</title>
+    <link href="{% static 'index.css' %}" rel="stylesheet" />
+    <script src="{% static 'index.js' %}" defer></script>
+    <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
+    <script src="{% static 'js/main.js' %}"></script>
+    <link rel="preconnect" href="{% static 'https://fonts.gstatic.com' %}" />
+    <link href="https://fonts.googleapis.com/css2?family=Akaya+Telivigala&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+</head>
+
+<body>
+    <img class="wave" src="{% static 'images/wave.svg' %}" alt="This an image of wave" />
+    <div class="container">
+        <div class="img">
+            <img src="{% static 'images/coffee.svg' %}" alt="Image of a boy sitting holding a coffee mug beside a large coffee mug" />
+        </div>
+        <div class="login-container">
+            <form action="register" method="post" style="margin-bottom: 130px; margin-top: 5px;">
+                {% csrf_token %}
+                <h2>Register Here</h2>
+                <div class="input-div one">
+                    <div class="em">
+                        <em class="glyphicon glyphicon-user"> </em>
+                    </div>
+                    <div>
+                        <h5>First Name</h5>
+                        <input class="input" type="text" name="first_name" required />
+                    </div>
+                </div>
+                <div class="input-div one">
+                    <div class="em">
+                        <em class="glyphicon glyphicon-user"> </em>
+                    </div>
+                    <div>
+                        <h5>Last name</h5>
+                        <input class="input" type="text"  name="last_name" required />
+                    </div>
+                </div>
+
+
+                <div class="input-div one">
+                    <div class="em">
+                        <em class="glyphicon glyphicon-user"> </em>
+                    </div>
+                    <div>
+                        <h5>Enrollment</h5>
+                        <input class="input" type="text" name="username" required />
+                    </div>
+                </div>
+
+                <div class="input-div one">
+                    <div class="em">
+                        <em class="glyphicon glyphicon-envelope"> </em>
+                    </div>
+                    <div>
+                        <h5>Email</h5>
+                        <input class="input" type="email" name="email" required />
+                    </div>
+                </div>
+                <div class="input-div two">
+                    <div class="em">
+                        <em class="glyphicon glyphicon-lock"> </em>
+                    </div>
+                    <div>
+                        <h5>Password</h5>
+                        <input class="input" type="password" name="password" required />
+                        <span toggle="#password" class="zmdi zmdi-eye field-icon toggle-password"></span>
+                    </div>
+                </div>
+                
+                <div class="input-div two">
+                    <div class="em">
+                        <em class="glyphicon glyphicon-lock"> </em>
+                    </div>
+                    <div>
+                        <h5>Confirm Password</h5>
+                        <input class="input" type="password" name="re_password" required />
+                    </div>
+                </div>
+               
+                <input type="submit" class="btn btn-group-lg"
+                    style="font-size: 20px; border-radius: 25px; outline: none" />
+                    <p class="loginhere">
+                        Have already an account ? <a href="login" class="loginhere-link" id ="loginhere"><strong>Login here</strong></a>
+                    </p>
+            </form>
+                            {% for message in messages %}
+                            <h2>{{message}}</h2>
+                            {% endfor %} 
+        </div>
+    </div>
+
+</body>
+
+</html>
